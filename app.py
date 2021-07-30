@@ -29,4 +29,4 @@ def criar():
     return redirect('/')
 
 
-app.run()
+app.run(debug=True)
