@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-application: acoustic-art-319413
 runtime: python39
 env: standard
 entrypoint: gunicorn -b :$PORT main:app
