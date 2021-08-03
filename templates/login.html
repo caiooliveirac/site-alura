@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+{% block conteudo %}
+    <form method="POST" action="/autenticar">
+        <br>
+        <input name="login" class="form-control" placeholder="Login">
+        <br>
+        <br>
+        <input type="password" class="form-control" name="senha" placeholder="Senha">
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-save"> Entrar </button>
+    </form>
+{% endblock %}
