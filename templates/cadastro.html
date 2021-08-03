@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<form action="cadastrar" method="post">
+    <div class="form-row" style="display:flex">
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="primeironome" placeholder="Primeiro Nome">
+        </div>
+        <div class="col-md-6">
+             <input type="text" class="form-control" name="sobrenome" placeholder="Sobrenome">
+        </div>
+    </div>
+    <br>
+    <div class="form-row" style="display:flex">
+
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="e-mail" placeholder="E-mail">
+        </div>
+        <div class="col-md-6">
+             <input type="text" class="form-control" name="pais" placeholder="País">
+        </div>
+    </div>
+    <br>
+    <div class="form-row" style="display:flex">
+
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="login" placeholder="Login">
+        </div>
+        <div class="col-md-6">
+             <input type="text" class="form-control" name="senha" placeholder="Senha">
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+{% endblock %}
