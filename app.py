@@ -5,17 +5,21 @@ app = Flask(__name__)
 app.secret_key = "senhasecreta"
 
 class Telaini:
-    def __init__(self,nome,categoria):
+    def __init__(self,nome,vermelha,verde,ortopedista,cirurgiao,radiografia):
         self.nome = nome
-        self.categoria = categoria
+        self.vermelha = vermelha
+        self.verde = verde
+        self.cirurgiao = cirurgiao
+        self.ortopedista = ortopedista
+        self.radiografia = radiografia
 
-jogo1 = Telaini('Caio','MSFS')
-jogo2 = Telaini('Iolanda','Violao')
-jogos = [jogo1,jogo2]
+unidade1 = Telaini('São Cristóvão','Restrita','Normal','Presente','Ausente',"Funciona")
+unidade2 = Telaini('Paripe','Normal','Normal','Ausente','Ausente',"Funciona")
+unidades = [unidade1,unidade2]
 
 @app.route('/')
 def ola():
-    return render_template('lista.html',titulo='Lista',jogos=jogos)
+    return render_template('lista.html',titulo='Lista',unidades=unidades)
 
 @app.route('/novo')
 def novo():
@@ -52,15 +56,16 @@ def autenticar():
 
 @app.route('/logout',methods=['POST'])
 def logout():
-    session['usuario_logado'] = None
-    flash('Nenhum usuário logado.')
-    return redirect('/')
+    if request.method == 'POST':
+        session['usuario_logado'] = None
+        flash('Nenhum usuário logado.')
+        return redirect('/')
 
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html',titulo='Cadastro')
 
-@app.route('/cadastrar',methods=['POST'])
+@app.route('/cadastrar',methods=['GET','POST'])
 def cadastrar():
     novo_usuario = request.form['login']
     nova_senha = request.form['senha']

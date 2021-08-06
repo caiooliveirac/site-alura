@@ -7,27 +7,47 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.css') }}">
 </head>
 <body>
-    <div class="min-vh-100 d-flex">
-    <div class='h-100vh' style="background-color:#222">
-        <h1>Ha</h1>
+    <header>
+        <div class="jumbotron jumbotron-fluid bg-white" style="margin:0;">
+            <div class="d-flex" style="margin:10px; padding:10px"><img src="{{url_for('static', filename='logo.jpg')}}" class="img-fluid" alt="..." style="max-width: 130px;">
+            <h1 class="display-6">Controle de Unidades de Pronto Atendimento</h1>
+            
+            <hr class="my-4">
+            </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        
+        <div class="navbar-collapse">
+            
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active"><a class="nav-link text-white" href={{url_for('login')}}>Entrar</a>  </li>
+            <li class="nav-item active"> <a class="nav-link text-white" href={{url_for('ola')}}>Lista</a>   </li>
+            <li class="nav-item active"> <a class="nav-link text-white" href={{url_for("novo")}}>Cadastro</a> </li>
+            <form action="/logout" method="post">
+            <li class="nav-item active"> <a type="submit" class="nav-link text-white">Logout</a> </li></form>
+        </ul>
     </div>
-    <div >
-    <div class="page-header" style="height:10vh">
+        </nav>
+    </header>
+    <main>
+    <div class="container">
+    <div class="page-header" style="height:10vh bg-dark">
         {% with messages  = get_flashed_messages() %}
         {% if messages %}
-        <ul id="messages" class="list-unstyled">
+        <ul id="messages" class="list-group-horizontal-lg">
             {% for message in messages %}
-            <li class="alert alert-sucess" style="color:green"> {{ message }} </li>
+            <li class=" list-group-item list-group-item-primary" style="color:green"> {{ message }} </li>
             {% endfor %}
         </ul>
         {% endif %}
         {% endwith %}
             <h1>{{ titulo }}</h1>
         </div>
-        <div class="form-group">
-    {% block conteudo %}{% endblock %}
-            </div>
+        
+               
         </div>
-        </div>
+        {% block conteudo %}{% endblock %}
+        
+        
+    </main>
 </body>
 </html>
