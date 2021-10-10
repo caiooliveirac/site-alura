@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% block conteudo %}
+      <form action="/criarhosp" method="post" style="max-width: 80vw; margin: auto;">
+      
+        <fieldset>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="restricao">Chefe de Plantão</label>
+            <input type="text" id="chefe" name="chefe" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="contato">Contato</label>
+            <input type="text" id="contato" name="contato" class="form-control">
+            <div class="form-group">
+              <label for="equipe">Equipe Completa?</label>
+              <input type="text" id="equipe" name="equipe" class="form-control">
+              <div class="form-group">
+                <label for="vermelha">Sala Vermelha</label>
+                <input type="text" id="vermelha" name="vermelha" class="form-control">
+           <br>     
+          <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+        </fieldset>
+      </form>
+{% endblock %}

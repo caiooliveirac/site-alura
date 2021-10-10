@@ -1,16 +1,29 @@
 {% extends "template.html" %}
 {% block conteudo %}
-      <form action="/criar" method="post">
+      <form action="/criar" method="post" style="max-width: 80vw; margin: auto;">
+      
         <fieldset>
           <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" class="form-control">
           </div>
           <div class="form-group">
-            <label for="categoria">Atividade de preferência</label>
-            <input type="text" id="categoria" name="categoria" class="form-control">
+            <label for="restricao">Restrição da Sala Vermelha</label>
+            <input type="checkbox" id="categoria" name="restricao" value="True" class="form-control">
           </div>
-          <br>
+          <div class="form-group">
+            <label for="verde">Atendimento de Verdes/Amarelos</label>
+            <input type="checkbox" id="verde" name="verde" value="True" class="form-control">
+            <div class="form-group">
+              <label for="ortopedista">Ortopedista</label>
+              <input type="checkbox" id="ortopedista" name="ortopedista" value="True" class="form-control">
+              <div class="form-group">
+                <label for="cirurgiao">Cirurgião</label>
+                <input type="checkbox" id="cirurgiao" name="cirurgiao" value="True" class="form-control">
+                <div class="form-group">
+                  <label for="rx">Aparelho de Radiografia</label>
+                  <input type="checkbox" id="rx" name="rx" value="True" class="form-control">
+                   </div>
           <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
         </fieldset>
       </form>

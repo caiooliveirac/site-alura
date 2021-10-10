@@ -21,9 +21,10 @@
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active"><a class="nav-link text-white" href={{url_for('login')}}>Entrar</a>  </li>
             <li class="nav-item active"> <a class="nav-link text-white" href={{url_for('ola')}}>Lista</a>   </li>
-            <li class="nav-item active"> <a class="nav-link text-white" href={{url_for("novo")}}>Cadastro</a> </li>
-            <form action="/logout" method="post">
-            <li class="nav-item active"> <a type="submit" class="nav-link text-white">Logout</a> </li></form>
+            <li class="nav-item active"> <a class="nav-link text-white" href={{url_for("novo")}}>Atualizar UPAs</a> </li>
+            <li class="nav-item active"> <a class="nav-link text-white" href={{url_for("novohosp")}}>Atualizar Hospitais</a> </li>
+            <li class="nav-item active"> <a class="nav-link text-white" href={{url_for("novopsiq")}}>Atualizar Psiquiátricos</a> </li>
+            <li class="nav-item active"> <a class="nav-link text-white" href={{url_for("novomaternidade")}}>Atualizar Maternidades</a> </li>
         </ul>
     </div>
         </nav>
@@ -32,7 +33,7 @@
     <div class="container">
     <div class="page-header" style="height:10vh bg-dark">
         {% with messages  = get_flashed_messages() %}
-        {% if messages %}
+        {% if 'usuario_logado' in session or session['usuario_logado'] != None: %}
         <ul id="messages" class="list-group-horizontal-lg">
             {% for message in messages %}
             <li class=" list-group-item list-group-item-primary" style="color:green"> {{ message }} </li>
